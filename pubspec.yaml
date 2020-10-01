@@ -1,5 +1,5 @@
-name: Vaisnavi_Agarbaties
-description: Thamilnadu's leading Agarbati Manufacturing.
+name: VyapaariOnline
+description: Shopkeeper's app
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
@@ -39,7 +39,7 @@ dev_dependencies:
     sdk: flutter
 
 flutter_icons:
-  image_path: "assets/logo.png"
+  image_path: "assets/Shopsapp.jpg"
   android: true
 
 # For information on the generic Dart part of this file, see the
@@ -55,7 +55,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/logo.png
+    - assets/Shopsapp.jpg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

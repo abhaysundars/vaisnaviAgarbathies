@@ -3,26 +3,55 @@ import 'package:flutter/material.dart';
 import 'package:animated_splash/animated_splash.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'dart:async';
-import 'package:progress_indicators/progress_indicators.dart';
+
 
 void main() {
   runApp(MaterialApp(
-    home: AnimatedSplash(
-      imagePath: 'assets/logo.png',
-      home: MyApp(),
-      duration: 2000,
-      type: AnimatedSplashType.StaticDuration,
-    ),
+    home: SplashScreen()
   ));
 }
+class SplashScreen extends StatefulWidget {
+  SplashScreen({Key key}) : super(key: key);
 
+  @override
+  _SplashScreenState createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(Duration(seconds: 3),
+          ()=>Navigator.pushReplacement(context,
+                                        MaterialPageRoute(builder:
+                                                          (context) => 
+                                                          MyApp()
+                                                         )
+                                       )
+         );
+  }
+  Widget build(BuildContext context) {
+    var SHeight = MediaQuery.of(context).size.height;
+    var SWidth = MediaQuery.of(context).size.width;
+    return Container(
+       height: SHeight,
+       width: SWidth,
+       decoration: BoxDecoration(
+         image: new DecorationImage(
+      image: new AssetImage('assets/Shopsapp.jpg'),
+      fit: BoxFit.cover,
+    ),
+       ),
+    );
+  }
+}
 class MyApp extends StatefulWidget {
   @override
-  _MyAppState createState() => _MyAppState('https://vaisnaviagarbati.com');
+  _MyAppState createState() => _MyAppState('https://vyaparionline.com/admin');
 }
 
 class _MyAppState extends State<MyApp> {
-  var _url = 'https://vaisnaviagarbati.com';
+  var _url = 'https://vyaparionline.com/admin';
   final _key = UniqueKey();
 
   _MyAppState(this._url);
@@ -53,7 +82,7 @@ class _MyAppState extends State<MyApp> {
           ],
         ),
         Container(
-          color: Colors.white,
+          color: Colors.blue[300],
           child: Center(
             child: CircularProgressIndicator(),
           ),
