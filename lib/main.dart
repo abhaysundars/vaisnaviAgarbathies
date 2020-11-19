@@ -4,12 +4,10 @@ import 'package:animated_splash/animated_splash.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'dart:async';
 
-
 void main() {
-  runApp(MaterialApp(
-    home: SplashScreen()
-  ));
+  runApp(MaterialApp(home: SplashScreen()));
 }
+
 class SplashScreen extends StatefulWidget {
   SplashScreen({Key key}) : super(key: key);
 
@@ -21,37 +19,35 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 3),
-          ()=>Navigator.pushReplacement(context,
-                                        MaterialPageRoute(builder:
-                                                          (context) => 
-                                                          MyApp()
-                                                         )
-                                       )
-         );
+    Timer(
+        Duration(seconds: 3),
+        () => Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => MyApp())));
   }
+
   Widget build(BuildContext context) {
     var SHeight = MediaQuery.of(context).size.height;
     var SWidth = MediaQuery.of(context).size.width;
     return Container(
-       height: SHeight,
-       width: SWidth,
-       decoration: BoxDecoration(
-         image: new DecorationImage(
-      image: new AssetImage('assets/Shopsapp.jpg'),
-      fit: BoxFit.cover,
-    ),
-       ),
+      height: SHeight,
+      width: SWidth,
+      decoration: BoxDecoration(
+        image: new DecorationImage(
+          image: new AssetImage('assets/UserApp.jpeg'),
+          fit: BoxFit.cover,
+        ),
+      ),
     );
   }
 }
+
 class MyApp extends StatefulWidget {
   @override
-  _MyAppState createState() => _MyAppState('https://vyaparionline.com/admin');
+  _MyAppState createState() => _MyAppState('https://vyaparionline.com');
 }
 
 class _MyAppState extends State<MyApp> {
-  var _url = 'https://vyaparionline.com/admin';
+  var _url = 'https://vyaparionline.com';
   final _key = UniqueKey();
 
   _MyAppState(this._url);
